@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from "expo-font";
+import React from 'react';
+import { Text, View } from 'react-native';
+import Routes from './routes';
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    "Satoshi": require("./assets/font/Satoshi-Variable.ttf"),
+    "Archivo": require("./assets/font/Archivo-Variable.ttf"),
+  });
+
+  // Attendez que les polices soient chargées
+  if (!fontsLoaded) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>Loading...</Text>
+      </View>
+    );
+  }
+
+  // Les polices sont chargées, vous pouvez rendre le reste de votre application
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1, backgroundColor: '#1C1C1C' }}>
+      <Routes />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
