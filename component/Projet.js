@@ -8,7 +8,7 @@ const Projet = ({navigation}) => {
   const [projets, setProjets] = useState([]);
 
   useEffect(() => {
-    fetch('http://192.168.1.20:3001/projets', {
+    fetch('http://172.20.10.2:3001/projets', {
       timeout: 1000, // Spécifiez le délai d'attente en millisecondes (ici 10 secondes)
     })
       .then((response) => response.json())
