@@ -20,7 +20,8 @@ const Projet = ({navigation}) => {
         console.error(error); 
         setLoading(false);
       });
-  }, []);
+  }, []); 
+  
 
   const navigateToDetails = (item) => {
     navigation.navigate('monProjetDetails', { projet: item });
